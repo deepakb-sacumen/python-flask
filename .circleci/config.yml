@@ -18,7 +18,12 @@ jobs:
           path: test-reports
       - store_artifacts:
           path: test-reports
+orbs:
+  jira: circleci/jira@1.1.6
 workflows:
   build_test:
     jobs:
       - run_tests
+      post-steps:
+        - jira/notify
+      
