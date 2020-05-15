@@ -23,7 +23,8 @@ orbs:
 workflows:
   build_test:
     jobs:
-      - run_tests
-        post-steps:
-          - jira/notify
+      - run_tests:
+          post-steps:
+            - jira/notify
+            
       
