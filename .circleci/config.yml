@@ -5,7 +5,6 @@ jobs:
       - image: circleci/python:3.7.4
     steps:
       - checkout
-      - jira/notify
       - run:
           name: Install Python Dependencies
           command: |
@@ -19,11 +18,7 @@ jobs:
           path: test-reports
       - store_artifacts:
           path: test-reports
-
-orbs: 
-  jira: circleci/jira@1.1.6
-
-  workflows:
+workflows:
   build_test:
     jobs:
       - run_tests
